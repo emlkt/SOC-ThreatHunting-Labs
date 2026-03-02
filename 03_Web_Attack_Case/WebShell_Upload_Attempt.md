@@ -44,7 +44,7 @@
 * `Linux x86_64 (Chrome)`
 * `Android 9 (Pixel 3)`
 *  `и др.`
-  + нашла `Mozilla/5.0 AppleWebKit/537.36 (KHTML, like Gecko; compatible; GPTBot/1.2; +https://openai.com/gptbot)` - возможно это попытка выдать себя за сервисы искусственного интеллекта
+* `+` нашла `Mozilla/5.0 AppleWebKit/537.36 (KHTML, like Gecko; compatible; GPTBot/1.2; +https://openai.com/gptbot)` - возможно это попытка выдать себя за сервисы искусственного интеллекта
 
 WAF корректно классифицировал атаку, но настройки политики не позволили блокировать трафик.
 ```json
@@ -98,3 +98,7 @@ Status: 404
 | **Attacker IP (Upload)** | `37.77.88.xxx`    | Загрузка веб-шелла          |
 | **Attacker IP (Exec)**   | `145.13.10.xxx`   | Попытка запуска шелла       |
 | **Malicious File**       | backdshell.aspx   | Загруженный веб-шелл        |
+
+<p align="left">
+ <img width="610px" src="web_shell.png" alt="log"/>
+</p>
