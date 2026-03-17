@@ -60,7 +60,7 @@ TargetFilename: ...application_form.pdf.exe:Zone.Identifier
 ```
 EventID: 3
 Image: C:\Users\LetsDefend\Downloads\application_form.pdf.exe
-DestinationIp: 13.232.55.12
+DestinationIp: 13[.]232[.]55[.]12
 DestinationPort: 30
 Protocol: tcp
 Initiated: true
@@ -70,7 +70,7 @@ RuleName: technique_id=T1036,technique_name=Masquerading
 (Тот же IP, откуда скачали файл. Порт 30 достаточно нестандартный. Initiated=true означает, что наш хост сам инициировал соединение, а это похоже на реверсшелл)
 
 #### Ответ:
-4. IP и порт - `13.232.55.12:30`
+4. IP и порт - `13[.]232[.]55[.]12:30`
 
 ---
 
@@ -187,7 +187,7 @@ RuleName: technique_id=T1059.001,technique_name=PowerShell
 ```
 EventID: 13 (RegistryValueSet)
 TargetObject: HKLM\...\FirewallRules\{...}
-Details: Action=Block|Active=TRUE|Dir=Out|RA4=13.232.55.12|Name=secevent1
+Details: Action=Block|Active=TRUE|Dir=Out|RA4=13[.]232[.]55[.]12|Name=secevent1
 User: NT AUTHORITY\LOCAL SERVICE
 ```
 
